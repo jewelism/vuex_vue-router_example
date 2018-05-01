@@ -8,8 +8,7 @@
 </template>
 
 <script>
-import { DECREASE_COUNT } from './mutation_types'
-import { callDecreaseCount } from './actions'
+import { DECREASE_COUNT, DECREMENT } from './store/types'
 
 export default {
   name: 'App',
@@ -20,12 +19,12 @@ export default {
   },
   computed: {
     count () {
-      return this.$store.state.count
+      return this.$store.state.counter.count
     }
   },
   methods: {
     decrease () {
-      callDecreaseCount()
+      this.$store.dispatch(DECREMENT)
     }
   }
 }
